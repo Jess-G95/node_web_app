@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/jjp', (req, res) => {
-  res.sendFile(path.join(public, "main.html"));
+  res.sendFile("main.html");
 });
 
 app.listen(port, () => {
