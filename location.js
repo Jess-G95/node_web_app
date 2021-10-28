@@ -8,6 +8,10 @@ document.addEventListener("DOMContentLoaded", () =>{
     getDeleteBtn().addEventListener('click', deleteEverything);
 })
 
+function findByKey(key, value) {
+    return (item, i) => item[key] === value
+}
+
 // OR make it /location?pokemon=USERINPUT
 // Maybe make event POST request to /location
 // get post data for pokemon to search for 
@@ -69,7 +73,9 @@ function renderPokemon(pokeLocation){
     // pokeName.innerText = pokeData.name
 
     let pokeNumber = document.createElement('p')
-    pokeNumber.innerText = `#${pokeLocation.location_area.name}`
+    let findParams = findByKey('location_area', 'name')
+    let index = data.findIndex(findParams)
+    pokeNumber.innerText = `${index}`
    
     // let pokeTypes = document.createElement('ul') //ul list will hold the pokemon types
   
