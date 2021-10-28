@@ -19,6 +19,14 @@ app.get('/jjp', (req, res) => {
   res.sendFile('main.html', { root: __dirname });
 });
 
+app.get('/pokemon.js', (req, res) => {
+  res.sendFile('pokemon.js', { root: __dirname });
+});
+
+app.get('/pokemon.css', (req, res) => {
+  res.sendFile('pokemon.css', { root: __dirname });
+});
+
 app.get('/pokemon', (req, res) => {
   res.sendFile('pokemon.html', { root: __dirname });
 });
