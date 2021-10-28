@@ -9,6 +9,7 @@
     <script src="location.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <link rel="stylesheet" href="pokemon.css">
+    <link rel="stylesheet" href="button.css">
 </head>
 <body>
     <div id="header-container" class="ui inverted segment">
@@ -19,7 +20,10 @@
     <div id="container">
         <div id="poke-container" class="ui cards">
                 <!-- will hold the cards for all the pokemon -->
-                <input type="text" placeholder="Search..">
+                <form class="example" action="action_page.php">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
         </div>
     </div>
     <div id="delete-container">
