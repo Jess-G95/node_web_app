@@ -5,6 +5,12 @@ const app = express();
 const port = 3000;
 const path = require("path");
 
+// Import Routes for API (Phil stuff)
+let apiRoutes = require("./api-routes")
+
+// Use api routes in the app
+app.use('/api', apiRoutes)
+
 app.get('/', (req, res) => {
   res.send('Hello World!')
 });
