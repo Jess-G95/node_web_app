@@ -1,16 +1,12 @@
+var http = require("http");
+
 const express = require('express')
 const app = express();
 const port = 3000;
-
-let quotesDiv = document.getElementById('quotes')
-fetch('https://api.kanye.rest')
-.then(res => res.json())
-.then(quote => {
-    quotesDiv.innerHTML += `<p> ${quote.quote} </p>`
-})
+const path = require("path");
 
 app.get('/', (req, res) => {
-  res.send(quotesDiv)
+  res.send('Hello World!')
 });
 
 app.listen(port, () => {
