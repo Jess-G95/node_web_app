@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     let generateBtn = document.querySelector('#generate-pokemon');
     generateBtn.addEventListener('click', renderLocations)
 
-    let generate2Btn = document.querySelector('#single-pokemon');
+    let generate2Btn = document.querySelector('#single-pokemon-button');
     generate2Btn.addEventListener('click', renderLocations)
 
     getDeleteBtn().addEventListener('click', deleteEverything);
