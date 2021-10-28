@@ -74,7 +74,7 @@ function renderPokemon(pokeLocation){
 
     let pokeNumber = document.createElement('p')
     let findParams = findByKey('location_area', 'name')
-    let index = data.findIndex(findParams)
+    let index = pokeLocation.findIndex(findParams)
     pokeNumber.innerText = `${index}`
    
     // let pokeTypes = document.createElement('ul') //ul list will hold the pokemon types
