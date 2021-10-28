@@ -74,11 +74,11 @@ function renderPokemon(pokeLocation){
 
     let pokeNumber = document.createElement('p')
 
-    // for (i=0; i<pokeLocation.length; i++){
-    //     pokeNumber.innerText = `${pokeLocation.name}`
-    //  }
+    for (i=0; i<pokeLocation.length; i++){
+        pokeNumber.innerText = `${pokeLocation.name}`
+    }
      
-    pokeNumber.innerText = `${pokeLocation.name}`
+    //pokeNumber.innerText = `${pokeLocation.name}`
    
     //let pokeLocations = document.createElement('ul') //ul list will hold the pokemon types
   
