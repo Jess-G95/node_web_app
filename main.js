@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/jjp', (req, res) => {
-  res.sendFile(path.join(public, "main.html"));
+  res.sendFile('main.html', { root: __dirname });
 });
 
 app.listen(port, () => {
