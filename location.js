@@ -52,7 +52,7 @@ function fetchSinglePokemon(){
             //const queryString = window.location.search;
             //const urlParams = new URLSearchParams(queryString);
             //const userpoke = urlParams.get('search')
-            const userpoke = document.getElementById("searchTxt").value;
+            const userpoke = document.querySelector('#single-pokemon').value;
             if (pokemon.name == userpoke){
                 fetchPokemonData(pokemon);
             } 
