@@ -25,9 +25,9 @@ function getDeleteBtn(){
     return document.querySelector('#delete-btn')
 }
 
-// Getting pokemon
+// Getting pokemon (limit this to just the one we want)
 function fetchKantoPokemon(){
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=1')
     .then(response => response.json())
     .then(function(allpokemon){
         allpokemon.results.forEach(function(pokemon){
@@ -45,12 +45,20 @@ function fetchPokemonData(pokemon){
     fetch(url)
     .then(response => response.json())
     .then(function(pokeData){
-        renderPokemon(pokeData)
+        fetchPokemonLocations(pokeData)
+    })
+}
+
+function fetchPokemonLocations(pokeData){
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokeData.id}/encounters`)
+    .then(response => response.json())
+    .then(function(pokeLocation){
+        renderPokemon(pokeLocation)
     })
 }
 
 // selecting which information to display and how
-function renderPokemon(pokeData){
+function renderPokemon(pokeLocation){
     let allPokemonContainer = document.getElementById('poke-container');
     let pokeContainer = document.createElement("div") //div will be used to hold the data/details for indiviual pokemon.{}
     pokeContainer.classList.add('ui', 'card');
@@ -61,25 +69,25 @@ function renderPokemon(pokeData){
     pokeName.innerText = pokeData.name
 
     let pokeNumber = document.createElement('p')
-    pokeNumber.innerText = `#${pokeData.id}`
+    pokeNumber.innerText = `#${pokeLocation.location_area.name}`
    
-    let pokeTypes = document.createElement('ul') //ul list will hold the pokemon types
+    // let pokeTypes = document.createElement('ul') //ul list will hold the pokemon types
   
 
-    createTypes(pokeData.types, pokeTypes) // helper function to go through the types array and create li tags for each one
+    // createTypes(pokeData.types, pokeTypes) // helper function to go through the types array and create li tags for each one
 
-    pokeContainer.append(pokeName, pokeNumber, pokeTypes);   //appending all details to the pokeContainer div
+    // pokeContainer.append(pokeName, pokeNumber, pokeTypes);   //appending all details to the pokeContainer div
     allPokemonContainer.appendChild(pokeContainer);       //appending that pokeContainer div to the main div which will                                                             hold all the pokemon cards
 }
 
 // creating HTML list for data
-function createTypes(types, ul){
-    types.forEach(function(type){
-        let typeLi = document.createElement('li');
-        typeLi.innerText = type['type']['name'];
-        ul.append(typeLi)
-    })
-}
+// function createTypes(types, ul){
+//     types.forEach(function(type){
+//         let typeLi = document.createElement('li');
+//         typeLi.innerText = type['type']['name'];
+//         ul.append(typeLi)
+//     })
+// }
 
 // Creating HTML div image for pokemon
 function createPokeImage(pokeID, containerDiv){
