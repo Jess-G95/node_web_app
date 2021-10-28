@@ -2,13 +2,13 @@ console.log('You have connected...')
 
 document.addEventListener("DOMContentLoaded", () =>{
 
-    let generateBtn = document.querySelector('#generate-pokemon');
-    generateBtn.addEventListener('click', renderLocations)
+    // let generateBtn = document.querySelector('#generate-pokemon');
+    // generateBtn.addEventListener('click', renderLocations)
 
     let generate2Btn = document.querySelector('#single-pokemon-button');
     generate2Btn.addEventListener('click', renderLocations)
 
-    getDeleteBtn().addEventListener('click', deleteEverything);
+    // getDeleteBtn().addEventListener('click', deleteEverything);
 })
 
 // OR make it /location?pokemon=USERINPUT
@@ -22,23 +22,23 @@ function renderLocations(){
     //fetchKantoPokemon();
     fetchSinglePokemon();
 
-    getDeleteBtn().style.display = 'block'
+    //getDeleteBtn().style.display = 'block'
 }
 
-function getDeleteBtn(){
-    return document.querySelector('#delete-btn')
-}
+// function getDeleteBtn(){
+//     return document.querySelector('#delete-btn')
+// }
 
 // Getting pokemon (limit this to just the one we want)
-function fetchKantoPokemon(){
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=1')
-    .then(response => response.json())
-    .then(function(allpokemon){
-        allpokemon.results.forEach(function(pokemon){
-            fetchPokemonData(pokemon);
-        })
-    })
-}
+// function fetchKantoPokemon(){
+//     fetch('https://pokeapi.co/api/v2/pokemon?limit=1')
+//     .then(response => response.json())
+//     .then(function(allpokemon){
+//         allpokemon.results.forEach(function(pokemon){
+//             fetchPokemonData(pokemon);
+//         })
+//     })
+// }
 
 // Getting Single Pokemon - NEED TO FIX TO ONLY SELECT POKEMON WHERE NAME = USER INPUT
 function fetchSinglePokemon(){
@@ -132,16 +132,16 @@ function createTypes(locations, ul){
 // }
 
 // deletes everything
-function deleteEverything(event){
-    event.target.style = 'none';
-    let allPokemonContainer = document.querySelector('#poke-container')
-    allPokemonContainer.innerText = ""
+// function deleteEverything(event){
+//     event.target.style = 'none';
+//     let allPokemonContainer = document.querySelector('#poke-container')
+//     allPokemonContainer.innerText = ""
 
-    let generateBtn = document.createElement('button')
-    generateBtn.innerText = "Generate Pokemon"
-    generateBtn.id = 'generate-pokemon'
-    generateBtn.classList.add('ui', 'secondary', 'button')
-    generateBtn.addEventListener('click', renderEverything);
+//     let generateBtn = document.createElement('button')
+//     generateBtn.innerText = "Generate Pokemon"
+//     generateBtn.id = 'generate-pokemon'
+//     generateBtn.classList.add('ui', 'secondary', 'button')
+//     generateBtn.addEventListener('click', renderEverything);
 
-    allPokemonContainer.append(generateBtn)
-}
+//     allPokemonContainer.append(generateBtn)
+// }
