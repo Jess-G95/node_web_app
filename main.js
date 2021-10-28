@@ -9,6 +9,10 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 });
 
+app.get('/jjp', (req, res) => {
+  res.sendFile(path.join(public, "main.html"));
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`)
 });
