@@ -49,9 +49,10 @@ function fetchSinglePokemon(){
             // check if name = user input
             // if it does then fetch data
             // if it doesnt then move on
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const userpoke = urlParams.get('search')
+            //const queryString = window.location.search;
+            //const urlParams = new URLSearchParams(queryString);
+            //const userpoke = urlParams.get('search')
+            const userpoke = document.getElementById("search").value;
             if (pokemon.name == userpoke){
                 fetchPokemonData(pokemon);
             } 
