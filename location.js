@@ -94,7 +94,7 @@ function renderPokemon(pokeLocation){
 function createTypes(locations, ul){
     locations.forEach(function(location){
         let locationLi = document.createElement('li');
-        locationLi.innerText = location['name'];
+        locationLi.innerText = location['location_area']['name'];
         ul.append(locationLi)
     })
 }
