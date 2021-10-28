@@ -5,12 +5,11 @@ document.addEventListener("DOMContentLoaded", () =>{
     let generateBtn = document.querySelector('#generate-pokemon');
     generateBtn.addEventListener('click', renderLocations)
 
+    let generateBtn = document.querySelector('#single-pokemon');
+    generateBtn.addEventListener('click', renderLocations)
+
     getDeleteBtn().addEventListener('click', deleteEverything);
 })
-
-function findByKey(key, value) {
-    return (item, i) => item[key] === value
-}
 
 // OR make it /location?pokemon=USERINPUT
 // Maybe make event POST request to /location
@@ -20,7 +19,8 @@ function findByKey(key, value) {
 function renderLocations(){
     let allPokemonContainer = document.querySelector('#poke-container')
     allPokemonContainer.innerText = "";
-    fetchKantoPokemon();
+    //fetchKantoPokemon();
+    fetchSinglePokemon();
 
     getDeleteBtn().style.display = 'block'
 }
@@ -36,6 +36,25 @@ function fetchKantoPokemon(){
     .then(function(allpokemon){
         allpokemon.results.forEach(function(pokemon){
             fetchPokemonData(pokemon);
+        })
+    })
+}
+
+// Getting Single Pokemon - NEED TO FIX TO ONLY SELECT POKEMON WHERE NAME = USER INPUT
+function fetchSinglePokemon(){
+    fetch('https://pokeapi.co/api/v2/pokemon')
+    .then(response => response.json())
+    .then(function(singlepokemon){
+        singlepokemon.results.forEach(function(pokemon){ // WHERE pokemon name = USER INPUT
+            // check if name = user input
+            // if it does then fetch data
+            // if it doesnt then move on
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const userpoke = urlParams.get('search')
+            if (pokemon.name == userpoke){
+                fetchPokemonData(pokemon);
+            } 
         })
     })
 }
