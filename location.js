@@ -63,10 +63,10 @@ function renderPokemon(pokeLocation){
     let pokeContainer = document.createElement("div") //div will be used to hold the data/details for indiviual pokemon.{}
     pokeContainer.classList.add('ui', 'card');
 
-    createPokeImage(pokeData.id, pokeContainer);
+    //createPokeImage(pokeData.id, pokeContainer);
 
-    let pokeName = document.createElement('h4') 
-    pokeName.innerText = pokeData.name
+    // let pokeName = document.createElement('h4') 
+    // pokeName.innerText = pokeData.name
 
     let pokeNumber = document.createElement('p')
     pokeNumber.innerText = `#${pokeLocation.location_area.name}`
@@ -90,16 +90,16 @@ function renderPokemon(pokeLocation){
 // }
 
 // Creating HTML div image for pokemon
-function createPokeImage(pokeID, containerDiv){
-    let pokeImgContainer = document.createElement('div')
-    pokeImgContainer.classList.add('image')
+// function createPokeImage(pokeID, containerDiv){
+//     let pokeImgContainer = document.createElement('div')
+//     pokeImgContainer.classList.add('image')
 
-    let pokeImage = document.createElement('img')
-    pokeImage.srcset = `https://pokeres.bastionbot.org/images/pokemon/${pokeID}.png`
+//     let pokeImage = document.createElement('img')
+//     pokeImage.srcset = `https://pokeres.bastionbot.org/images/pokemon/${pokeID}.png`
 
-    pokeImgContainer.append(pokeImage);
-    containerDiv.append(pokeImgContainer);
-}
+//     pokeImgContainer.append(pokeImage);
+//     containerDiv.append(pokeImgContainer);
+// }
 
 // deletes everything
 function deleteEverything(event){
