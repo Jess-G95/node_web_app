@@ -6,7 +6,12 @@ const port = 3000;
 const path = require("path");
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  //res.send('Hello World!')
+  function fetchKantoPokemon(){
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+    .then(response => response.json())
+    .then(allpokemon => console.log(allpokemon))
+  }
 });
 
 app.get('/jjp', (req, res) => {
